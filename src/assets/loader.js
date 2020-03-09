@@ -1,12 +1,11 @@
-import snake from './images/snake.png';
-import bomberFront from './images/Bomberman/Front/*.png';
-import bomberBack from './images/Bomberman/Back/*.png';
-import bomberRight from './images/Bomberman/Right/*.png';
-import bomberLeft from './images/Bomberman/Left/*.png';
+import ghost from './images/ghost/*.png';
+import cloud from './images/cloud/*.png';
+import obstacle1 from './images/obstacle1/*.png';
+import obstacle2 from './images/obstacle2/*.png';
 
-export const bomberFrames = {
-    front: Object.values(bomberFront),
-    back: Object.values(bomberBack),
-    right: Object.values(bomberRight),
-    left: Object.values(bomberLeft),
+export const loadedSprites = {
+    ghost: Object.values(ghost),
+    obstacleGrave: Object.values(obstacle1),
+    obstaclePumpkin: Object.values(obstacle2),
+    cloud: Object.values(cloud),
 };
