@@ -22,7 +22,7 @@ class Player {
         GameApp.Stage.addChild(this.sprite);
     }
 
-    private CollidesWith(otherSprite: PIXI.Sprite) 
+    private collidesWith(otherSprite: PIXI.Sprite) 
     {
         var ab = this.sprite.getBounds();
         var bb = otherSprite.getBounds();
@@ -55,7 +55,7 @@ class Player {
         for(var i = 0; i < activeEntities.length; i++)
         { 
             var entity = activeEntities[i];
-            if (entity.solid && this.CollidesWith(entity.sprite)) 
+            if (entity.solid && this.collidesWith(entity.sprite)) 
             {
                 GameApp.GameOver = true;
             }
@@ -66,7 +66,7 @@ class Player {
 class ScrollingObject {
     sprite: PIXI.AnimatedSprite; 
     airborne: boolean;
-    solid = true;
+    solid: boolean = true;
 
     public constructor(spriteName: string, x: number, y: number, isSolid: boolean) {
         this.sprite = GetSprite(spriteName);
