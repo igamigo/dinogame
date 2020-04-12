@@ -97,10 +97,10 @@ export class GameApp {
   static PressedSpace = false;
   static Stage: PIXI.Container;
   static ActiveEntities: Array<WorldObject> = [];
-  static GameOver: boolean = false;
+  static GameOver: boolean = true;
   static ScrollSpeed = 3;
   static ScoreNextObstacle = 0;
-  static Score = 0;
+  static Score: number = 0;
   static MaxScore = 0;
 
   static GroundPosition = 0;
@@ -144,18 +144,18 @@ export class GameApp {
           " - Max Score: " +
           Math.ceil(GameApp.MaxScore);
       } else {
+        if (GameApp.Score == 0) {GameApp.ScoreText.text = "Press spacebar or touch screen to start!"; return;};
         GameApp.ScoreText.text =
-          "Game over! You scored " +
-          Math.ceil(GameApp.Score) +
-          ". Max Score: " +
-          Math.ceil(GameApp.MaxScore) +
-          ". Press spacebar to restart.";
+        "Game over! You scored " +
+        Math.ceil(GameApp.Score) +
+        ". Max Score: " +
+        Math.ceil(GameApp.MaxScore) +
+        ". Press spacebar or touch to restart.";
       }
     });
   }
 
   static SetupGame() {
-    this.GameOver = false;
     this.Score = 0;
 
     this.ActiveEntities = new Array<WorldObject>();
@@ -199,6 +199,7 @@ export class GameApp {
       }
     } else {
       if (GameApp.PressedSpace) {
+        this.GameOver = false;
         this.SetupGame();
       }
     }
