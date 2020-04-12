@@ -128,7 +128,6 @@ export class GameApp {
     };
 
     window.ontouchstart = (ev: TouchEvent): any => {
-      alert("adssd");
       GameApp.PressedSpace = true;
     };
 
