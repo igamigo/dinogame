@@ -127,6 +127,11 @@ export class GameApp {
       GameApp.PressedSpace = ev.key == " ";
     };
 
+    window.ontouchstart = (ev: TouchEvent): any => {
+      alert("adssd");
+      GameApp.PressedSpace = true;
+    };
+
     GameApp.SetupGame();
 
     this.app.ticker.add(delta => {
