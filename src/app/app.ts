@@ -125,6 +125,9 @@ export class GameApp {
 
     window.onkeydown = (ev: KeyboardEvent): any => {
       GameApp.PressedSpace = ev.key == " ";
+      if (ev.target == document.body) { 
+        ev.preventDefault();
+      }
     };
 
     window.ontouchstart = (ev: TouchEvent): any => {
